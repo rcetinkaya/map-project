@@ -9,10 +9,13 @@ const config = {
   ],
   "extends": [
     "next/core-web-vitals",
+    "next/typescript",
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked"
   ],
   "rules": {
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off",
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/consistent-type-imports": [
@@ -25,7 +28,7 @@ const config = {
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
-        "argsIgnorePattern": "^_"
+        "argsIgnorePattern": "^_",
       }
     ],
     "@typescript-eslint/require-await": "off",
@@ -36,7 +39,12 @@ const config = {
           "attributes": false
         }
       }
-    ]
+    ],
+    "@typescript-eslint/no-explicit-any": "warn", 
+    "@typescript-eslint/no-unsafe-assignment": "warn", 
+    "@typescript-eslint/no-unsafe-return": "warn", 
+    "@typescript-eslint/no-unsafe-call": "warn", 
+    "@typescript-eslint/no-unsafe-member-access": "warn",
   }
 }
 module.exports = config;

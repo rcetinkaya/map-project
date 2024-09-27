@@ -1,5 +1,4 @@
 "use client";
-import dynamic from 'next/dynamic';
 import { Box, Button, Input, FormControl, FormLabel } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { addLocation } from '@/redux/locationSlice';
@@ -41,7 +40,7 @@ const AddLocation = () => {
         <FormLabel>Marker Rengi</FormLabel>
         <Input type="color" value={markerColor} onChange={(e) => setMarkerColor(e.target.value)} />
       </FormControl>
-      <GoogleMaps onMapClick={onMapClick} markerColor={markerColor} marker={marker} />
+      <GoogleMaps onMapClick={onMapClick} markerColor={markerColor} marker={marker} path={undefined} />
       <Button mt={4} colorScheme="blue" onClick={handleSaveLocation}>
         Konumu Kaydet
       </Button>

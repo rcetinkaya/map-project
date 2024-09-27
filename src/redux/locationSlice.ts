@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Location {
   id: string;
@@ -10,7 +10,7 @@ interface Location {
 
 // LocalStorage'dan verileri yükleyin
 const loadLocationsFromLocalStorage = (): Location[] => {
-  const storedLocations = localStorage.getItem('locations');
+  const storedLocations = typeof window !== "undefined" ?localStorage.getItem('locations'): null;
   return storedLocations ? JSON.parse(storedLocations) : [];
 };
 
@@ -21,15 +21,16 @@ const locationSlice = createSlice({
   name: 'locations',
   initialState,
   reducers: {
-    addLocation: (state, action) => {
+    addLocation: (state: Location[], action: PayloadAction<Location>) => {
       state.push(action.payload);
       // Güncellenen durumu localStorage'a kaydedin
       localStorage.setItem('locations', JSON.stringify(state));
     },
-    updateLocation: (state, action) => {
+    updateLocation: (state: Location[], action: PayloadAction<Location>) => {
       const index = state.findIndex(loc => loc.id === action.payload.id);
       if (index !== -1) {
-        state[index] = action.payload;
+        // Var olan özellikleri koruyarak güncelleme
+        state[index] = { ...state[index], ...action.payload };
         // Güncellenen durumu localStorage'a kaydedin
         localStorage.setItem('locations', JSON.stringify(state));
       }

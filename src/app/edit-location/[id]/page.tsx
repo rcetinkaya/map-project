@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Box, Button, Input, FormControl, FormLabel } from '@chakra-ui/react';
-import { GoogleMap, Marker } from '@react-google-maps/api';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateLocation } from '@/redux/locationSlice';
 import { RootState } from '@/redux/store';
@@ -34,15 +33,17 @@ const EditLocation = () => {
   };
 
   const handleUpdateLocation = () => {
-    dispatch(
-      updateLocation({
-        id,
-        name: locationName,
-        latitude: marker.lat,
-        longitude: marker.lng,
-        color: markerColor,
-      })
-    );
+    if (typeof id === 'string') {
+      dispatch(
+        updateLocation({
+          id,
+          name: locationName,
+          latitude: marker.lat,
+          longitude: marker.lng,
+          color: markerColor,
+        })
+      );
+    }
   };
 
   return (
@@ -55,8 +56,8 @@ const EditLocation = () => {
         <FormLabel>Marker Rengi</FormLabel>
         <Input type="color" value={markerColor} onChange={(e) => setMarkerColor(e.target.value)} />
       </FormControl>
-      <GoogleMaps onMapClick={onMapClick} markerColor={markerColor} marker={marker} />
-     {/*  <GoogleMap
+      <GoogleMaps onMapClick={onMapClick} markerColor={markerColor} marker={marker} path={undefined} />
+      {/*  <GoogleMap
         onClick={onMapClick}
         mapContainerStyle={{ height: '400px', width: '100%' }}
         center={marker}
