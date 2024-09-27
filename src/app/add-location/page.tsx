@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addLocation } from '@/redux/locationSlice';
 import { useState } from 'react';
 import GoogleMaps from '../components/googleMap';
-import { nanoid } from 'nanoid'; // nanoid'ı burada içe aktarın
+import { nanoid } from 'nanoid'; 
 
 const AddLocation = () => {
   const [marker, setMarker] = useState({ lat: 0, lng: 0 });

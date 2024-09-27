@@ -5,14 +5,14 @@ import React from 'react';
 interface MarkerType {
   lat: number;
   lng: number;
-  color?: string; // opsiyonel olarak renk ekleyin
+  color?: string; 
 }
 
 interface GoogleMapsProps {
-  onMapClick: (event: google.maps.MapMouseEvent) => void; // Google Maps olay türü
+  onMapClick: (event: google.maps.MapMouseEvent) => void; 
   markerColor: string;
-  marker: MarkerType; // Marker için uygun tür
-  path?: MarkerType[]; // Opsiyonel olarak bir yol
+  marker: MarkerType; 
+  path?: MarkerType[]; 
 }
 
 const GoogleMaps: React.FC<GoogleMapsProps> = ({ onMapClick, markerColor, marker, path }) => {
@@ -23,12 +23,12 @@ const GoogleMaps: React.FC<GoogleMapsProps> = ({ onMapClick, markerColor, marker
 
   if (!isLoaded) return <div>Google Maps yükleniyor...</div>;
 
-  // Marker için ikonu tanımlama
+
   const markerIcon = {
-    path: google.maps.SymbolPath.CIRCLE, // Örnek bir simge yolu
+    path: google.maps.SymbolPath.CIRCLE, 
     fillColor: markerColor,
     fillOpacity: 1,
-    scale: 10, // Simgenin boyutu
+    scale: 10, 
     strokeColor: 'white',
     strokeWeight: 2,
   };
@@ -50,13 +50,12 @@ const GoogleMaps: React.FC<GoogleMapsProps> = ({ onMapClick, markerColor, marker
           position={position}
           icon={{
             ...markerIcon,
-            fillColor: position.color ?? markerColor, // Renk kullanımı
-          }} // Her marker için benzersiz renk kullanma
+            fillColor: position.color ?? markerColor,
+          }} 
         />
       ))}
-      
-      {/* Polyline kullanımı */}
-      {path && <Polyline path={path} />} {/* path varsa Polyline ekleyin */}
+  
+      {path && <Polyline path={path} />} 
     </GoogleMap>
   );
 }
