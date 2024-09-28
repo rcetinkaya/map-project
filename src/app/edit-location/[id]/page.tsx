@@ -47,14 +47,16 @@ const EditLocation = () => {
   };
 
   return (
-    <Box p={5}>
+    <Box p={5}  className="gap-y-2 flex flex-col">
       <FormControl>
         <FormLabel>Konum Adı</FormLabel>
         <Input value={locationName} onChange={(e) => setLocationName(e.target.value)} />
       </FormControl>
       <FormControl>
         <FormLabel>Marker Rengi</FormLabel>
-        <Input type="color" value={markerColor} onChange={(e) => setMarkerColor(e.target.value)} />
+        <Box className='w-1/12 p-2'>
+          <Input type="color" value={markerColor} onChange={(e) => setMarkerColor(e.target.value)} />
+        </Box>
       </FormControl>
       <GoogleMaps onMapClick={onMapClick} markerColor={markerColor} marker={marker} path={undefined} />
       {/*  <GoogleMap

@@ -40,10 +40,9 @@ const GoogleMaps: React.FC<GoogleMapsProps> = ({ onMapClick, markerColor, marker
       center={marker}
       zoom={10}
     >
-      {/* Marker'ı ekleme */}
+
       <Marker position={marker} icon={markerIcon} />
       
-      {/* Path varsa Marker ekleme */}
       {path?.map((position, index) => (
         <Marker
           key={index}
