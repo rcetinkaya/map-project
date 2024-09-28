@@ -19,7 +19,7 @@ console.log("locations: ",locations)
     <Box p={5}>
       <GoogleMap
         mapContainerStyle={{ height: '500px', width: '100%' }}
-        center={path[0] || { lat: 0, lng: 0 }}
+        center={path[0] ?? { lat: 0, lng: 0 }}
         zoom={10}
       >
         {locations.map((location: { latitude: number; longitude: number; color: string; }, index: number) => (
