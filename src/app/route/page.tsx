@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Box, InfoWindow } from '@chakra-ui/react';
-import { GoogleMap, Polyline, Marker } from '@react-google-maps/api';
+import { Box} from '@chakra-ui/react';
+import { GoogleMap, Polyline, Marker,InfoWindow} from '@react-google-maps/api';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 
@@ -71,7 +71,7 @@ const RouteMap = () => {
       ) : (
       <GoogleMap
         mapContainerStyle={{ height: '500px', width: '100%' }}
-        center={userLocation || { lat: 0, lng: 0 }}
+        center={userLocation ?? { lat: 0, lng: 0 }}
         zoom={10}
       >
         {locations.map((location: { latitude: number; longitude: number; color: string; name: string }, index: number) => (
