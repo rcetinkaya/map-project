@@ -33,8 +33,13 @@ const locationSlice = createSlice({
         localStorage.setItem('locations', JSON.stringify(state));
       }
     },
+    deleteLocation: (state: Location[], action: PayloadAction<string>) => {
+      const updatedState = state.filter(location => location.id !== action.payload);
+      localStorage.setItem('locations', JSON.stringify(updatedState));
+      return updatedState;
+    },
   },
 });
 
-export const { addLocation, updateLocation } = locationSlice.actions;
+export const { addLocation, updateLocation,deleteLocation } = locationSlice.actions;
 export default locationSlice.reducer;
