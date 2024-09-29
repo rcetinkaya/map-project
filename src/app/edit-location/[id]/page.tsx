@@ -63,6 +63,12 @@ const EditLocation = () => {
   };
 
   return (
+    <>
+    <Box className='flex w-full justify-start bg-gray-300'>
+        <span className='font-bold'>
+          KONUM DÜZENLE
+        </span>
+      </Box>
     <Box p={5} className="gap-y-2 flex flex-col">
       <FormControl>
         <FormLabel>Konum Adı</FormLabel>
@@ -80,6 +86,8 @@ const EditLocation = () => {
         Konumu Güncelle
       </Button>
     </Box>
+    </>
+    
   );
 };
 

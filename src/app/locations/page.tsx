@@ -33,6 +33,12 @@ const LocationList = () => {
   };
 
   return (
+    <>
+    <Box className='flex w-full justify-start bg-gray-300'>
+        <span className='font-bold'>
+         KONUM LİSTELE
+        </span>
+      </Box>
     <Box p={5}>
       <Box className='flex w-full justify-end'>
         <Button colorScheme="teal" mb={4} onClick={handleRouteShow}>
@@ -84,6 +90,8 @@ const LocationList = () => {
         </SimpleGrid>
       )}
     </Box>
+    </>
+    
   );
 };
 
