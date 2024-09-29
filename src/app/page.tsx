@@ -9,7 +9,7 @@ export default function HomePage() {
         </h1>
         <div className="flex flex-col gap-4">
         <span className="px-4 py-2 bg-purple-600 rounded-lg">
-        •	Uygulamamda konum ekleme, konum listeleme, konumları düzenleme, konumları harita üstünde gösterilmesi ile rota çizgilerinin oluşması konuları ele alınmıştır.
+        •	Uygulamamda konum ekleme, konum listeleme, konumları düzenleme, konumların harita üstünde gösterilmesi ile rota çizgilerinin oluşması konuları ele alınmıştır.
         </span>
         <span className="px-4 py-2 bg-purple-600 rounded-lg">
         •	Menu üzerinden ilerleyebilirsiniz.
