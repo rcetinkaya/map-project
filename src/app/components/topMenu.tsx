@@ -18,7 +18,7 @@ export default function TopMenu() {
     zIndex={10}>
       <Flex h={16} alignItems="center" justifyContent="space-between">
         <Box className="flex justify-between w-full" color="white" fontSize="xl" fontWeight="bold">
-          <Link href="/" onClick={isOpen ? onClose : null}>
+          <Link href="/" onClick={onClose}>
             Map Project Home
           </Link>
           <IconButton
