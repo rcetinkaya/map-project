@@ -2,9 +2,10 @@
 import { Box, Button, Input, FormControl, FormLabel, FormErrorMessage, useToast } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { addLocation } from '@/redux/locationSlice';
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import GoogleMaps from '../components/googleMap';
 import { nanoid } from 'nanoid';
+import { useRouter } from 'next/navigation';
 
 const AddLocation = () => {
   const [marker, setMarker] = useState({ lat: 39.01012882740788, lng: 34.78952708922943 });
@@ -12,6 +13,7 @@ const AddLocation = () => {
   const [markerColor, setMarkerColor] = useState('#ff0000');
   const [isLoading, setIsLoading] = useState(false); 
   const [isNameValid, setIsNameValid] = useState(true);
+  const router = useRouter()
   const dispatch = useDispatch();
   const toast = useToast(); 
 
@@ -54,14 +56,23 @@ const AddLocation = () => {
       setIsNameValid(true);
     }, 500);
   };
+  
+  const handleRouteShow = () => {
+    router.push('/locations');
+  };
 
   return (
     <Box p={5} className="gap-y-2 flex flex-col">
+      <Box className='flex w-full justify-end'>
+        <Button colorScheme="teal" mb={4} onClick={handleRouteShow}>
+          Konum Listele
+        </Button>
+      </Box>
       <FormControl isInvalid={!isNameValid}>
         <FormLabel>Konum Adı</FormLabel>
         <Input
           value={locationName}
-          onChange={(e) => {
+          onChange={(e: { target: { value: string; }; }) => {
             setLocationName(e.target.value.toUpperCase());
             setIsNameValid(true); 
           }}
@@ -72,7 +83,7 @@ const AddLocation = () => {
       <FormControl>
         <FormLabel>Marker Rengi</FormLabel>
         <Box className='w-[6rem] p-2'>
-          <Input type="color" value={markerColor} onChange={(e) => setMarkerColor(e.target.value)} />
+          <Input type="color" value={markerColor} onChange={(e: { target: { value: SetStateAction<string>; }; }) => setMarkerColor(e.target.value)} />
         </Box>
       </FormControl>
 

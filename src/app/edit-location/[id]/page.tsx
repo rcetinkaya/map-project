@@ -70,8 +70,8 @@ const EditLocation = () => {
       </FormControl>
       <FormControl>
         <FormLabel>Marker Rengi</FormLabel>
-        <Box className='w-1/12 p-2'>
-          <Input type="color" value={markerColor} onChange={(e) => setMarkerColor(e.target.value)} />
+        <Box className='w-[6rem] p-2'>
+          <Input type="color" value={markerColor} onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setMarkerColor(e.target.value)} />
         </Box>
       </FormControl>
       <GoogleMaps onMapClick={onMapClick} markerColor={markerColor} marker={marker} path={undefined} />

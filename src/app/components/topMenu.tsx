@@ -32,7 +32,7 @@ export default function TopMenu() {
 
         <HStack spacing={8} alignItems="center">
           <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
-            <Link href="/add-location">
+            <Link href="/add-location" >
               <Button
                 colorScheme={pathname === "/add-location" ? "purple" : "whiteAlpha"}
                 variant={pathname === "/add-location" ? "solid" : "ghost"}
@@ -68,8 +68,9 @@ export default function TopMenu() {
                 w="full"
                 colorScheme={pathname === "/add-location" ? "purple" : "whiteAlpha"}
                 variant={pathname === "/add-location" ? "solid" : "ghost"}
+                onClick={isOpen ? onClose : onOpen}
               >
-                Add Location
+                Konum Ekle
               </Button>
             </Link>
             <Link href="/locations">
@@ -77,8 +78,9 @@ export default function TopMenu() {
                 w="full"
                 colorScheme={pathname === "/locations" ? "purple" : "whiteAlpha"}
                 variant={pathname === "/locations" ? "solid" : "ghost"}
+                onClick={isOpen ? onClose : onOpen}
               >
-                View Locations
+                Konum Listele
               </Button>
             </Link>
             <Link href="/route">
@@ -86,8 +88,9 @@ export default function TopMenu() {
                 w="full"
                 colorScheme={pathname === "/route" ? "purple" : "whiteAlpha"}
                 variant={pathname === "/route" ? "solid" : "ghost"}
+                onClick={isOpen ? onClose : onOpen}
               >
-                Show Route
+                Rota Göster
               </Button>
             </Link>
           </Stack>
